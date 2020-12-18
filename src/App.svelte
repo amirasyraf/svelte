@@ -9,7 +9,7 @@
     date = newDate;
 
     const res2 = await fetch('/api/helloworld');
-    string = res2.text();
+    string = await res2.text();
   });
 </script>
 
