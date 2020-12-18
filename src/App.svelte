@@ -1,11 +1,15 @@
 <script>
   import { onMount } from "svelte";
   export let date;
+  let string;
 
   onMount(async () => {
     const res = await fetch("/api/date");
     const newDate = await res.text();
     date = newDate;
+
+    const res2 = await fetch('/api/helloworld');
+    string = res2.text();
   });
 </script>
 
@@ -45,4 +49,5 @@
   <br />
   <h2>The date according to Node.js is:</h2>
   <p>{date ? date : 'Loading date...'}</p>
+  <p>{string}</p>
 </main>
